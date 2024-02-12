@@ -7,26 +7,34 @@
     <script src="https://unpkg.com/htmx.org@1.9.5"></script>
     <script src="https://unpkg.com/hyperscript.org@0.9.11"></script>
     <script src="https://unpkg.com/htmx.org/dist/ext/json-enc.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">    
-    <title>App-Bun</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <title>App Bun</title>
 </head>
-<body style="background-color: aquamarine;" >
-    <header class="container" >
+
+<body style="background-color: aquamarine;">
+    <header class="container" style="display: flex; align-items: center;  justify-content: center;">
         <hgroup>
-            <h1>Desarrollo de app con Bun</h1>
-            <h2 style="color: rgb(32, 76, 233);">Walter Gomez- Fullstack developer @2024</h2>
+            <h1>Lista de tareas con Bun</h1>
+            <h2 style="color: rgb(26, 85, 214);">desarrollado por Walter Gomez </h2>
         </hgroup>
     </header>
 
     <main class="container">
-        <form hx-post="/todos" hx-target="#todos" hx-ext="json-enc" _="on submit target.reset()">
-            <label for="todo" style="color: rgb(32, 76, 233);">Bun ToDo (Lista de tareas) </label>
-            <input id="todo" name="todo" type="text" aria-label="Create Bun Todo" placeholder="nueva tarea con Bun" >
-            <button type="submit">Crear tarea con Bun</button>
-        </form>
-
-        <section id="todos" hx-get="/todos" hx-trigger="load" style="color: rgb(32, 76, 233);"></section>
+        <div style="display: flex; align-items: center;  justify-content: center; gap: 35px">
+            <form hx-post="/todos" hx-target="#todos" hx-ext="json-enc" _="on submit target.reset()" >
+                <label for="todo">Lisa de tareas (con Bun)</label>
+                <input id="todo" name="todo" type="text" aria-label="crear nueva tarea" placeholder="nueva tarea">
+                <button type="submit">Crear tarea</button>
+            </form>
+            <section id="todos" hx-get="/todos" hx-trigger="load"></section>
+        </div>
     </main>
+    <footer class="container" style="display: flex; align-items: center;  justify-content: center;">
+        <!--<hgroup> -->           
+            <h4 style="color: rgb(26, 85, 214);">@derechos reservados 2024 - Walter Gomez-fullstack developer </h4>
+        <!--</hgroup>-->
+    </footer>
+
 </body>
 
 </html>

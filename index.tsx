@@ -31,7 +31,7 @@ async function fetchHandler(request: Request): Promise<Response> {
     return new Response(renderToString(<TodoList todos={todos} />));
   }
 
-  return new Response("No encontrado", { status: 404 });
+  return new Response("Not Found", { status: 404 });
 }
 
 function TodoList(props: { todos: Todo[] }) {
@@ -39,7 +39,7 @@ function TodoList(props: { todos: Todo[] }) {
     <ul>
       {props.todos.length
         ? props.todos.map((todo) => <li key={`todo-${todo.id}`}>{todo.name}</li>)
-        : "No hay lista por tareas"}
+        : "no hay tareas a listar"}
     </ul>
   );
 }
